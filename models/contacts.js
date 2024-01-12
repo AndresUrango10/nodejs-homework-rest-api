@@ -1,14 +1,15 @@
-// const fs = require('fs/promises')
+const Contact = require("./modelContacts");
 
-const listContacts = async () => {}
+const listContacts = async () => Contact.find();
 
-const getContactById = async (contactId) => {}
+const getContactById = async (contactId) => Contact.findById(contactId);
 
-const removeContact = async (contactId) => {}
+const removeContact = async (contactId) => Contact.findByIdAndDelete(contactId);
 
-const addContact = async (body) => {}
+const addContact = async (body) => Contact.create(body);
 
-const updateContact = async (contactId, body) => {}
+const updateContact = async (contactId, body) =>
+  Contact.findByIdAndUpdate(contactId, body, { new: true });
 
 module.exports = {
   listContacts,
@@ -16,4 +17,4 @@ module.exports = {
   removeContact,
   addContact,
   updateContact,
-}
+};
